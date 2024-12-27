@@ -1,46 +1,114 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Container */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6e7bff, #ff8b8b);
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .container {
     text-align: center;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    transform: scale(0.95);
+    animation: scaleIn 1s ease-out forwards;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-out;
 }
 
 #webcam-container {
-    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    background-color: #333;
+    animation: pulse 3s infinite ease-in-out;
 }
 
 #label-container {
-    margin-bottom: 20px;
-    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-around;
+    opacity: 0;
+    animation: fadeIn 2s 1s forwards;
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #ff8b8b;
     border: none;
     color: white;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 20px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #6e7bff;
 }
 
 #attendanceList {
     margin-top: 20px;
-    text-align: left;
+    font-size: 1em;
+    color: #fff;
+    overflow-y: auto;
+    max-height: 150px;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
